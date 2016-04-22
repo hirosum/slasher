@@ -1,39 +1,46 @@
 #include <SFML\Graphics.hpp>
 #include "game.h"
 #include "drawableCircle.h"
-#include "windowHandle.h"
+#include "drawableRectangle.h"
+#include "actor.h"
+#include "calculations.h"
+
 //Constants
-const int KEY_HOLD_TIMEOUT_LENGTH	= 500;
+const int KEY_HOLD_TIMEOUT_LENGTH = 50;
+const int WINDOW_HEIGHT = 800;
+const int WINDOW_WIDTH = 600;
 
 float circleRad			= 100.0f;
 float circleX			= (WINDOW_WIDTH / 2) - circleRad;
 float circleY			= (WINDOW_HEIGHT / 2) - circleRad;
-float circleMoveSpeed	= 10.0f;
-float circleResizeSpeed = 10.0f;
+float circleMoveSpeed	= 2.0f;
+float circleResizeSpeed = 2.0f;
 
-DrawableCircle circle(circleX,circleY,circleRad,sf::Color(100,100,100));
-sf::RenderWindow* wnd;
+DrawableCircle circle(circleX,circleY,circleRad);
+DrawableRectangle rect(0, 0, 50, 50);
 
 int main()
 {
-	WindowHandle* wndHandle = WindowHandle::Instance();
-	wnd = wndHandle->getWindow();
-
-	sf::CircleShape shape(100.f);
-	shape.setFillColor(sf::Color::Green);
-	while (wnd->isOpen())
+	sf::ContextSettings settings;
+	settings.antialiasingLevel = 8;
+	sf::RenderWindow wnd(sf::VideoMode(WINDOW_WIDTH, WINDOW_HEIGHT), "SFML Works!", sf::Style::Default, settings);
+	Actor act(circleX, circleY);
+	circle.setColor(sf::Color::Green);
+	rect.setColor(sf::Color::Magenta);
+	act.addToDrawableList(&circle);
+	act.addToDrawableList(&rect);
+	while (wnd.isOpen())
 	{
 		sf::Event ev;
-		while (wnd->pollEvent(ev))
+		while (wnd.pollEvent(ev))
 		{
 			if (ev.type == sf::Event::Closed)
-				wnd->close();
+				wnd.close();
 		}
 		keyboardEventHandler();
-		wnd->clear();
-		circle.draw(wnd);
-		//wnd->draw(shape);
-		wnd->display();
+		wnd.clear();
+		act.draw(wnd);
+		wnd.display();
 	}
 }
 
@@ -48,7 +55,7 @@ void keyboardEventHandler()
 			if ((circle.getRadius() - circleResizeSpeed)<= 10.0f)
 				circle.setRadius(10.0f);
 			else
-				circle.resize(-circleResizeSpeed);
+				circle.changeRadius(-circleResizeSpeed);
 			holdCounters.subtractKeyCounter = 0;
 		}
 		else
@@ -66,10 +73,10 @@ void keyboardEventHandler()
 		if (holdCounters.addKeyCounter >= KEY_HOLD_TIMEOUT_LENGTH)
 		{
 			if ((circle.getRadius() + circleResizeSpeed) >= maxCircleRad)
-				circle.setRadius(maxCircleRad);
+				circle.setRadius((float)maxCircleRad);
 			else
 			{
-				circle.resize(circleResizeSpeed);
+				circle.changeRadius(circleResizeSpeed);
 			}
 			holdCounters.addKeyCounter = 0;
 		}
@@ -158,12 +165,23 @@ void keyboardEventHandler()
 	{
 		holdCounters.downKeyCounter = 0;
 	}
-}
-
-int smallerInt(int a, int b)
-{
-	if (a < b)
-		return a;
+	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down))
+	{
+		if (holdCounters.downKeyCounter >= KEY_HOLD_TIMEOUT_LENGTH)
+		{
+			if ((circle.getPositionY() + circleMoveSpeed) >= (WINDOW_HEIGHT - circleRad * 2))
+				circle.setPositionY((WINDOW_HEIGHT - circleRad * 2));
+			else
+				circle.move(0, circleMoveSpeed);
+			holdCounters.downKeyCounter = 0;
+		}
+		else
+		{
+			holdCounters.downKeyCounter++;
+		}
+	}
 	else
-		return b;
+	{
+		holdCounters.downKeyCounter = 0;
+	}
 }

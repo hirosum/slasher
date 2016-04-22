@@ -27,7 +27,13 @@
     <ClCompile Include="drawableCircle.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="windowHandle.cpp">
+    <ClCompile Include="drawableRectangle.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="calculations.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="actor.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -44,7 +50,13 @@
     <ClInclude Include="drawableCircle.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="windowHandle.h">
+    <ClInclude Include="drawableRectangle.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="actor.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="calculations.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

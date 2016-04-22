@@ -2,7 +2,6 @@
 #define GAME_H
 
 void keyboardEventHandler();
-int smallerInt(int a, int b);
 
 struct KeyHeldCounters
 {

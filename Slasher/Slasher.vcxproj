@@ -130,18 +130,22 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="actor.cpp" />
+    <ClCompile Include="calculations.cpp" />
     <ClCompile Include="drawable.cpp" />
     <ClCompile Include="drawableCircle.cpp" />
+    <ClCompile Include="drawableRectangle.cpp" />
     <ClCompile Include="game.cpp" />
     <ClCompile Include="gameObject.cpp" />
-    <ClCompile Include="windowHandle.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="actor.h" />
+    <ClInclude Include="calculations.h" />
     <ClInclude Include="drawable.h" />
     <ClInclude Include="drawableCircle.h" />
+    <ClInclude Include="drawableRectangle.h" />
     <ClInclude Include="game.h" />
     <ClInclude Include="gameObject.h" />
-    <ClInclude Include="windowHandle.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

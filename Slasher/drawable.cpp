@@ -1,13 +1,15 @@
 #include "drawable.h"
 
 Drawable::Drawable(float pPosX, float pPosY) : 
-	GameObject(pPosX, pPosY)
+	GameObject(pPosX, pPosY),
+	currentScale(1.0f, 1.0f)
 {
 
 }
 
 Drawable::Drawable(sf::Vector2f pPos) : 
-	GameObject(pPos)
+	GameObject(pPos),
+	currentScale(1.0f, 1.0f)
 {
 
 }

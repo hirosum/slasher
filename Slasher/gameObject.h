@@ -7,6 +7,7 @@ class GameObject
 public:
 	GameObject(float pPosX, float pPosY);
 	GameObject(sf::Vector2f pPos);
+	//GameObject(const GameObject& pGameObject);
 	virtual void setPosition(float pPosX, float pPosY);
 	virtual void setPosition(sf::Vector2f pPos);
 	virtual void setPositionX(float pPos);
@@ -14,10 +15,15 @@ public:
 	virtual void move(sf::Vector2f pSpeed);
 	virtual void move(float pSpeedX, float pSpeedY);
 	sf::Vector2f getPosition();
-	float getPositionX();
-	float getPositionY();
+	float		 getPositionX();
+	float		 getPositionY();
+	void		 setParent(GameObject* pParent);
+	void		 removeParent();
+
 protected:
-	sf::Vector2f worldPosition;
+	sf::Vector2f position;
+	GameObject*  ptrParentObject;
+	bool		 hasParent;
 	
 };
 

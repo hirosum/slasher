@@ -1,25 +1,20 @@
 #include "drawableCircle.h"
 #include "windowHandle.h"
 
-DrawableCircle::DrawableCircle(float pPosX, float pPosY, float pRad, 
-								sf::Color pColor) : 
-	Drawable(pPosX,pPosY),
+DrawableCircle::DrawableCircle(float pPosX, float pPosY, float pRad) :
+	Drawable(pPosX, pPosY),
 	radius(pRad),
-	shape(radius),
-	color(pColor)
+	shape(radius)
 {
-	shape.setPosition(worldPosition);
-	color = pColor;
+	shape.setPosition(position);
 }
 
-DrawableCircle::DrawableCircle(sf::Vector2f pPos, float pRad, 
-								sf::Color pColor) :
+DrawableCircle::DrawableCircle(sf::Vector2f pPos, float pRad) :
 	Drawable(pPos),
 	radius(pRad),
-	shape(radius),
-	color(pColor)
+	shape(radius)
 {
-	shape.setPosition(worldPosition);
+	shape.setPosition(position);
 }
 
 void DrawableCircle::setRadius(float pRad)
@@ -43,13 +38,13 @@ void DrawableCircle::setPosition(sf::Vector2f pPos)
 void DrawableCircle::setPositionX(float pPos)
 {
 	Drawable::setPositionX(pPos);
-	shape.setPosition(pPos, worldPosition.y);
+	shape.setPosition(pPos, position.y);
 }
 
 void DrawableCircle::setPositionY(float pPos)
 {
 	Drawable::setPositionY(pPos);
-	shape.setPosition(worldPosition.x, pPos);
+	shape.setPosition(position.x, pPos);
 }
 
 void DrawableCircle::move(sf::Vector2f pSpeed)
@@ -64,7 +59,7 @@ void DrawableCircle::move(float pSpeedX, float pSpeedY)
 	shape.move(pSpeedX, pSpeedY);
 }
 
-void DrawableCircle::resize(float pAmount)
+void DrawableCircle::changeRadius(float pAmount)
 {
 	if (radius + pAmount <= 1.0f)
 		radius = 1.0f;
@@ -73,13 +68,30 @@ void DrawableCircle::resize(float pAmount)
 	shape.setRadius(radius);
 }
 
-void DrawableCircle::draw(sf::RenderWindow* pWnd)
+void DrawableCircle::draw(sf::RenderWindow& pWnd)
 {
 	shape.setFillColor(color);
-	pWnd->draw(shape);
+	pWnd.draw(shape);
 }
 
 float DrawableCircle::getRadius()
 {
 	return radius;
+}
+
+void DrawableCircle::scale(float pScale)
+{
+	shape.scale(pScale, pScale);
+	currentScale = shape.getScale();
+}
+
+void DrawableCircle::scale(float pScaleX, float pScaleY)
+{
+	shape.scale(pScaleX, pScaleY);
+	currentScale = shape.getScale();
+}
+
+void DrawableCircle::setColor(sf::Color pColor)
+{
+	color = pColor;
 }
