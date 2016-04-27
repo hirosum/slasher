@@ -1,76 +1,75 @@
-﻿Build started 21/04/2016 16:51:58.
+﻿Build started 27/04/2016 13:37:52.
      1>Project "C:\Users\ctalbot\Documents\Visual Studio 2013\Projects\Slasher\Slasher\Slasher.vcxproj" on node 2 (Build target(s)).
      1>ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\x86_amd64\CL.exe /c /I"C:\Program Files\SFML\SFML-2.3.2\include" /Zi /nologo /W3 /WX- /sdl /Od /D SFML_STATIC /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"x64\Debug\\" /Fd"x64\Debug\vc120.pdb" /Gd /TP /errorReport:prompt actor.cpp calculations.cpp drawable.cpp drawableCircle.cpp drawableRectangle.cpp game.cpp gameObject.cpp
-         gameObject.cpp
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\x86_amd64\CL.exe /c /I"C:\Program Files\SFML\SFML-2.3.2\include" /Zi /nologo /W3 /WX- /sdl /Od /D SFML_STATIC /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"x64\Debug\\" /Fd"x64\Debug\vc120.pdb" /Gd /TP /errorReport:prompt actor.cpp drawable.cpp drawableCircle.cpp drawableRectangle.cpp game.cpp
          game.cpp
+     1>c:\users\ctalbot\documents\visual studio 2013\projects\slasher\slasher\drawable.h(38): error C2535: 'void Drawable::draw(sf::RenderWindow &)' : member function already defined or declared
+                 c:\users\ctalbot\documents\visual studio 2013\projects\slasher\slasher\drawable.h(10) : see declaration of 'Drawable::draw'
+     1>game.cpp(18): error C2661: 'Actor::Actor' : no overloaded function takes 2 arguments
          drawableRectangle.cpp
+     1>c:\users\ctalbot\documents\visual studio 2013\projects\slasher\slasher\drawable.h(38): error C2535: 'void Drawable::draw(sf::RenderWindow &)' : member function already defined or declared
+                 c:\users\ctalbot\documents\visual studio 2013\projects\slasher\slasher\drawable.h(10) : see declaration of 'Drawable::draw'
          drawableCircle.cpp
+     1>c:\users\ctalbot\documents\visual studio 2013\projects\slasher\slasher\drawable.h(38): error C2535: 'void Drawable::draw(sf::RenderWindow &)' : member function already defined or declared
+                 c:\users\ctalbot\documents\visual studio 2013\projects\slasher\slasher\drawable.h(10) : see declaration of 'Drawable::draw'
+     1>drawableCircle.cpp(8): error C2065: 'position' : undeclared identifier
+     1>drawableCircle.cpp(8): error C2228: left of '.x' must have class/struct/union
+                 type is 'unknown-type'
+     1>drawableCircle.cpp(8): error C2228: left of '.y' must have class/struct/union
+                 type is 'unknown-type'
+     1>drawableCircle.cpp(16): error C2065: 'position' : undeclared identifier
+     1>drawableCircle.cpp(16): error C2228: left of '.x' must have class/struct/union
+                 type is 'unknown-type'
+     1>drawableCircle.cpp(16): error C2228: left of '.y' must have class/struct/union
+                 type is 'unknown-type'
+     1>drawableCircle.cpp(25): error C2039: 'setPosition' : is not a member of 'DrawableCircle'
+                 c:\users\ctalbot\documents\visual studio 2013\projects\slasher\slasher\drawableCircle.h(6) : see declaration of 'DrawableCircle'
+     1>drawableCircle.cpp(27): error C2039: 'setPosition' : is not a member of 'Drawable'
+                 c:\users\ctalbot\documents\visual studio 2013\projects\slasher\slasher\drawable.h(7) : see declaration of 'Drawable'
+     1>drawableCircle.cpp(28): error C2065: 'shape' : undeclared identifier
+     1>drawableCircle.cpp(28): error C2228: left of '.setPosition' must have class/struct/union
+                 type is 'unknown-type'
+     1>drawableCircle.cpp(31): error C2039: 'setPosition' : is not a member of 'DrawableCircle'
+                 c:\users\ctalbot\documents\visual studio 2013\projects\slasher\slasher\drawableCircle.h(6) : see declaration of 'DrawableCircle'
+     1>drawableCircle.cpp(33): error C2039: 'setPosition' : is not a member of 'Drawable'
+                 c:\users\ctalbot\documents\visual studio 2013\projects\slasher\slasher\drawable.h(7) : see declaration of 'Drawable'
+     1>drawableCircle.cpp(34): error C2065: 'shape' : undeclared identifier
+     1>drawableCircle.cpp(34): error C2228: left of '.setPosition' must have class/struct/union
+                 type is 'unknown-type'
+     1>drawableCircle.cpp(34): error C2065: 'position' : undeclared identifier
+     1>drawableCircle.cpp(34): error C2228: left of '.x' must have class/struct/union
+                 type is 'unknown-type'
+     1>drawableCircle.cpp(34): error C2228: left of '.y' must have class/struct/union
+                 type is 'unknown-type'
+     1>drawableCircle.cpp(37): error C2039: 'setPositionX' : is not a member of 'DrawableCircle'
+                 c:\users\ctalbot\documents\visual studio 2013\projects\slasher\slasher\drawableCircle.h(6) : see declaration of 'DrawableCircle'
+     1>drawableCircle.cpp(39): error C2039: 'setPositionX' : is not a member of 'Drawable'
+                 c:\users\ctalbot\documents\visual studio 2013\projects\slasher\slasher\drawable.h(7) : see declaration of 'Drawable'
+     1>drawableCircle.cpp(40): error C2065: 'shape' : undeclared identifier
+     1>drawableCircle.cpp(40): error C2228: left of '.setPosition' must have class/struct/union
+                 type is 'unknown-type'
+     1>drawableCircle.cpp(40): error C2065: 'position' : undeclared identifier
+     1>drawableCircle.cpp(40): error C2228: left of '.y' must have class/struct/union
+                 type is 'unknown-type'
+     1>drawableCircle.cpp(43): error C2039: 'setPositionY' : is not a member of 'DrawableCircle'
+                 c:\users\ctalbot\documents\visual studio 2013\projects\slasher\slasher\drawableCircle.h(6) : see declaration of 'DrawableCircle'
+     1>drawableCircle.cpp(45): error C2039: 'setPositionY' : is not a member of 'Drawable'
+                 c:\users\ctalbot\documents\visual studio 2013\projects\slasher\slasher\drawable.h(7) : see declaration of 'Drawable'
+     1>drawableCircle.cpp(46): error C2065: 'shape' : undeclared identifier
+     1>drawableCircle.cpp(46): error C2228: left of '.setPosition' must have class/struct/union
+                 type is 'unknown-type'
+     1>drawableCircle.cpp(46): error C2065: 'position' : undeclared identifier
+     1>drawableCircle.cpp(46): error C2228: left of '.x' must have class/struct/union
+                 type is 'unknown-type'
          drawable.cpp
-         calculations.cpp
+     1>c:\users\ctalbot\documents\visual studio 2013\projects\slasher\slasher\drawable.h(38): error C2535: 'void Drawable::draw(sf::RenderWindow &)' : member function already defined or declared
+                 c:\users\ctalbot\documents\visual studio 2013\projects\slasher\slasher\drawable.h(10) : see declaration of 'Drawable::draw'
          actor.cpp
+     1>c:\users\ctalbot\documents\visual studio 2013\projects\slasher\slasher\drawable.h(38): error C2535: 'void Drawable::draw(sf::RenderWindow &)' : member function already defined or declared
+                 c:\users\ctalbot\documents\visual studio 2013\projects\slasher\slasher\drawable.h(10) : see declaration of 'Drawable::draw'
          Generating Code...
-       Link:
-         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\x86_amd64\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\ctalbot\Documents\Visual Studio 2013\Projects\Slasher\x64\Debug\Slasher.exe" /INCREMENTAL /NOLOGO /LIBPATH:"C:\Program Files\SFML\SFML-2.3.2\lib" "sfml-graphics-s-d.lib" "sfml-window-s-d.lib" "sfml-system-s-d.lib" "sfml-network-s-d.lib" "sfml-audio-s-d.lib" opengl32.lib winmm.lib gdi32.lib freetype.lib jpeg.lib openal32.lib flac.lib vorbisenc.lib vorbisfile.lib vorbis.lib ogg.lib ws2_32.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\ctalbot\Documents\Visual Studio 2013\Projects\Slasher\x64\Debug\Slasher.pdb" /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\ctalbot\Documents\Visual Studio 2013\Projects\Slasher\x64\Debug\Slasher.lib" /MACHINE:X64 x64\Debug\actor.obj
-         x64\Debug\calculations.obj
-         x64\Debug\drawable.obj
-         x64\Debug\drawableCircle.obj
-         x64\Debug\drawableRectangle.obj
-         x64\Debug\game.obj
-         x64\Debug\gameObject.obj
-     1>sfml-graphics-s-d.lib(BlendMode.cpp.obj) : warning LNK4099: PDB 'vc120.pdb' was not found with 'sfml-graphics-s-d.lib(BlendMode.cpp.obj)' or at 'C:\Users\ctalbot\Documents\Visual Studio 2013\Projects\Slasher\x64\Debug\vc120.pdb'; linking object as if no debug info
-     1>sfml-graphics-s-d.lib(Color.cpp.obj) : warning LNK4099: PDB 'vc120.pdb' was not found with 'sfml-graphics-s-d.lib(Color.cpp.obj)' or at 'C:\Users\ctalbot\Documents\Visual Studio 2013\Projects\Slasher\x64\Debug\vc120.pdb'; linking object as if no debug info
-     1>sfml-graphics-s-d.lib(GLCheck.cpp.obj) : warning LNK4099: PDB 'vc120.pdb' was not found with 'sfml-graphics-s-d.lib(GLCheck.cpp.obj)' or at 'C:\Users\ctalbot\Documents\Visual Studio 2013\Projects\Slasher\x64\Debug\vc120.pdb'; linking object as if no debug info
-     1>sfml-graphics-s-d.lib(GLExtensions.cpp.obj) : warning LNK4099: PDB 'vc120.pdb' was not found with 'sfml-graphics-s-d.lib(GLExtensions.cpp.obj)' or at 'C:\Users\ctalbot\Documents\Visual Studio 2013\Projects\Slasher\x64\Debug\vc120.pdb'; linking object as if no debug info
-     1>sfml-graphics-s-d.lib(Image.cpp.obj) : warning LNK4099: PDB 'vc120.pdb' was not found with 'sfml-graphics-s-d.lib(Image.cpp.obj)' or at 'C:\Users\ctalbot\Documents\Visual Studio 2013\Projects\Slasher\x64\Debug\vc120.pdb'; linking object as if no debug info
-     1>sfml-graphics-s-d.lib(ImageLoader.cpp.obj) : warning LNK4099: PDB 'vc120.pdb' was not found with 'sfml-graphics-s-d.lib(ImageLoader.cpp.obj)' or at 'C:\Users\ctalbot\Documents\Visual Studio 2013\Projects\Slasher\x64\Debug\vc120.pdb'; linking object as if no debug info
-     1>sfml-graphics-s-d.lib(RenderStates.cpp.obj) : warning LNK4099: PDB 'vc120.pdb' was not found with 'sfml-graphics-s-d.lib(RenderStates.cpp.obj)' or at 'C:\Users\ctalbot\Documents\Visual Studio 2013\Projects\Slasher\x64\Debug\vc120.pdb'; linking object as if no debug info
-     1>sfml-graphics-s-d.lib(RenderTarget.cpp.obj) : warning LNK4099: PDB 'vc120.pdb' was not found with 'sfml-graphics-s-d.lib(RenderTarget.cpp.obj)' or at 'C:\Users\ctalbot\Documents\Visual Studio 2013\Projects\Slasher\x64\Debug\vc120.pdb'; linking object as if no debug info
-     1>sfml-graphics-s-d.lib(RenderWindow.cpp.obj) : warning LNK4099: PDB 'vc120.pdb' was not found with 'sfml-graphics-s-d.lib(RenderWindow.cpp.obj)' or at 'C:\Users\ctalbot\Documents\Visual Studio 2013\Projects\Slasher\x64\Debug\vc120.pdb'; linking object as if no debug info
-     1>sfml-graphics-s-d.lib(Shader.cpp.obj) : warning LNK4099: PDB 'vc120.pdb' was not found with 'sfml-graphics-s-d.lib(Shader.cpp.obj)' or at 'C:\Users\ctalbot\Documents\Visual Studio 2013\Projects\Slasher\x64\Debug\vc120.pdb'; linking object as if no debug info
-     1>sfml-graphics-s-d.lib(Texture.cpp.obj) : warning LNK4099: PDB 'vc120.pdb' was not found with 'sfml-graphics-s-d.lib(Texture.cpp.obj)' or at 'C:\Users\ctalbot\Documents\Visual Studio 2013\Projects\Slasher\x64\Debug\vc120.pdb'; linking object as if no debug info
-     1>sfml-graphics-s-d.lib(TextureSaver.cpp.obj) : warning LNK4099: PDB 'vc120.pdb' was not found with 'sfml-graphics-s-d.lib(TextureSaver.cpp.obj)' or at 'C:\Users\ctalbot\Documents\Visual Studio 2013\Projects\Slasher\x64\Debug\vc120.pdb'; linking object as if no debug info
-     1>sfml-graphics-s-d.lib(Transform.cpp.obj) : warning LNK4099: PDB 'vc120.pdb' was not found with 'sfml-graphics-s-d.lib(Transform.cpp.obj)' or at 'C:\Users\ctalbot\Documents\Visual Studio 2013\Projects\Slasher\x64\Debug\vc120.pdb'; linking object as if no debug info
-     1>sfml-graphics-s-d.lib(Transformable.cpp.obj) : warning LNK4099: PDB 'vc120.pdb' was not found with 'sfml-graphics-s-d.lib(Transformable.cpp.obj)' or at 'C:\Users\ctalbot\Documents\Visual Studio 2013\Projects\Slasher\x64\Debug\vc120.pdb'; linking object as if no debug info
-     1>sfml-graphics-s-d.lib(View.cpp.obj) : warning LNK4099: PDB 'vc120.pdb' was not found with 'sfml-graphics-s-d.lib(View.cpp.obj)' or at 'C:\Users\ctalbot\Documents\Visual Studio 2013\Projects\Slasher\x64\Debug\vc120.pdb'; linking object as if no debug info
-     1>sfml-graphics-s-d.lib(Vertex.cpp.obj) : warning LNK4099: PDB 'vc120.pdb' was not found with 'sfml-graphics-s-d.lib(Vertex.cpp.obj)' or at 'C:\Users\ctalbot\Documents\Visual Studio 2013\Projects\Slasher\x64\Debug\vc120.pdb'; linking object as if no debug info
-     1>sfml-graphics-s-d.lib(GLLoader.cpp.obj) : warning LNK4099: PDB 'vc120.pdb' was not found with 'sfml-graphics-s-d.lib(GLLoader.cpp.obj)' or at 'C:\Users\ctalbot\Documents\Visual Studio 2013\Projects\Slasher\x64\Debug\vc120.pdb'; linking object as if no debug info
-     1>sfml-graphics-s-d.lib(Shape.cpp.obj) : warning LNK4099: PDB 'vc120.pdb' was not found with 'sfml-graphics-s-d.lib(Shape.cpp.obj)' or at 'C:\Users\ctalbot\Documents\Visual Studio 2013\Projects\Slasher\x64\Debug\vc120.pdb'; linking object as if no debug info
-     1>sfml-graphics-s-d.lib(CircleShape.cpp.obj) : warning LNK4099: PDB 'vc120.pdb' was not found with 'sfml-graphics-s-d.lib(CircleShape.cpp.obj)' or at 'C:\Users\ctalbot\Documents\Visual Studio 2013\Projects\Slasher\x64\Debug\vc120.pdb'; linking object as if no debug info
-     1>sfml-graphics-s-d.lib(RectangleShape.cpp.obj) : warning LNK4099: PDB 'vc120.pdb' was not found with 'sfml-graphics-s-d.lib(RectangleShape.cpp.obj)' or at 'C:\Users\ctalbot\Documents\Visual Studio 2013\Projects\Slasher\x64\Debug\vc120.pdb'; linking object as if no debug info
-     1>sfml-graphics-s-d.lib(VertexArray.cpp.obj) : warning LNK4099: PDB 'vc120.pdb' was not found with 'sfml-graphics-s-d.lib(VertexArray.cpp.obj)' or at 'C:\Users\ctalbot\Documents\Visual Studio 2013\Projects\Slasher\x64\Debug\vc120.pdb'; linking object as if no debug info
-     1>sfml-window-s-d.lib(Context.cpp.obj) : warning LNK4099: PDB 'vc120.pdb' was not found with 'sfml-window-s-d.lib(Context.cpp.obj)' or at 'C:\Users\ctalbot\Documents\Visual Studio 2013\Projects\Slasher\x64\Debug\vc120.pdb'; linking object as if no debug info
-     1>sfml-window-s-d.lib(GlContext.cpp.obj) : warning LNK4099: PDB 'vc120.pdb' was not found with 'sfml-window-s-d.lib(GlContext.cpp.obj)' or at 'C:\Users\ctalbot\Documents\Visual Studio 2013\Projects\Slasher\x64\Debug\vc120.pdb'; linking object as if no debug info
-     1>sfml-window-s-d.lib(GlResource.cpp.obj) : warning LNK4099: PDB 'vc120.pdb' was not found with 'sfml-window-s-d.lib(GlResource.cpp.obj)' or at 'C:\Users\ctalbot\Documents\Visual Studio 2013\Projects\Slasher\x64\Debug\vc120.pdb'; linking object as if no debug info
-     1>sfml-window-s-d.lib(Joystick.cpp.obj) : warning LNK4099: PDB 'vc120.pdb' was not found with 'sfml-window-s-d.lib(Joystick.cpp.obj)' or at 'C:\Users\ctalbot\Documents\Visual Studio 2013\Projects\Slasher\x64\Debug\vc120.pdb'; linking object as if no debug info
-     1>sfml-window-s-d.lib(JoystickManager.cpp.obj) : warning LNK4099: PDB 'vc120.pdb' was not found with 'sfml-window-s-d.lib(JoystickManager.cpp.obj)' or at 'C:\Users\ctalbot\Documents\Visual Studio 2013\Projects\Slasher\x64\Debug\vc120.pdb'; linking object as if no debug info
-     1>sfml-window-s-d.lib(Keyboard.cpp.obj) : warning LNK4099: PDB 'vc120.pdb' was not found with 'sfml-window-s-d.lib(Keyboard.cpp.obj)' or at 'C:\Users\ctalbot\Documents\Visual Studio 2013\Projects\Slasher\x64\Debug\vc120.pdb'; linking object as if no debug info
-     1>sfml-window-s-d.lib(SensorManager.cpp.obj) : warning LNK4099: PDB 'vc120.pdb' was not found with 'sfml-window-s-d.lib(SensorManager.cpp.obj)' or at 'C:\Users\ctalbot\Documents\Visual Studio 2013\Projects\Slasher\x64\Debug\vc120.pdb'; linking object as if no debug info
-     1>sfml-window-s-d.lib(VideoMode.cpp.obj) : warning LNK4099: PDB 'vc120.pdb' was not found with 'sfml-window-s-d.lib(VideoMode.cpp.obj)' or at 'C:\Users\ctalbot\Documents\Visual Studio 2013\Projects\Slasher\x64\Debug\vc120.pdb'; linking object as if no debug info
-     1>sfml-window-s-d.lib(Window.cpp.obj) : warning LNK4099: PDB 'vc120.pdb' was not found with 'sfml-window-s-d.lib(Window.cpp.obj)' or at 'C:\Users\ctalbot\Documents\Visual Studio 2013\Projects\Slasher\x64\Debug\vc120.pdb'; linking object as if no debug info
-     1>sfml-window-s-d.lib(WindowImpl.cpp.obj) : warning LNK4099: PDB 'vc120.pdb' was not found with 'sfml-window-s-d.lib(WindowImpl.cpp.obj)' or at 'C:\Users\ctalbot\Documents\Visual Studio 2013\Projects\Slasher\x64\Debug\vc120.pdb'; linking object as if no debug info
-     1>sfml-window-s-d.lib(WglContext.cpp.obj) : warning LNK4099: PDB 'vc120.pdb' was not found with 'sfml-window-s-d.lib(WglContext.cpp.obj)' or at 'C:\Users\ctalbot\Documents\Visual Studio 2013\Projects\Slasher\x64\Debug\vc120.pdb'; linking object as if no debug info
-     1>sfml-window-s-d.lib(WglExtensions.cpp.obj) : warning LNK4099: PDB 'vc120.pdb' was not found with 'sfml-window-s-d.lib(WglExtensions.cpp.obj)' or at 'C:\Users\ctalbot\Documents\Visual Studio 2013\Projects\Slasher\x64\Debug\vc120.pdb'; linking object as if no debug info
-     1>sfml-window-s-d.lib(InputImpl.cpp.obj) : warning LNK4099: PDB 'vc120.pdb' was not found with 'sfml-window-s-d.lib(InputImpl.cpp.obj)' or at 'C:\Users\ctalbot\Documents\Visual Studio 2013\Projects\Slasher\x64\Debug\vc120.pdb'; linking object as if no debug info
-     1>sfml-window-s-d.lib(JoystickImpl.cpp.obj) : warning LNK4099: PDB 'vc120.pdb' was not found with 'sfml-window-s-d.lib(JoystickImpl.cpp.obj)' or at 'C:\Users\ctalbot\Documents\Visual Studio 2013\Projects\Slasher\x64\Debug\vc120.pdb'; linking object as if no debug info
-     1>sfml-window-s-d.lib(SensorImpl.cpp.obj) : warning LNK4099: PDB 'vc120.pdb' was not found with 'sfml-window-s-d.lib(SensorImpl.cpp.obj)' or at 'C:\Users\ctalbot\Documents\Visual Studio 2013\Projects\Slasher\x64\Debug\vc120.pdb'; linking object as if no debug info
-     1>sfml-window-s-d.lib(VideoModeImpl.cpp.obj) : warning LNK4099: PDB 'vc120.pdb' was not found with 'sfml-window-s-d.lib(VideoModeImpl.cpp.obj)' or at 'C:\Users\ctalbot\Documents\Visual Studio 2013\Projects\Slasher\x64\Debug\vc120.pdb'; linking object as if no debug info
-     1>sfml-window-s-d.lib(WindowImplWin32.cpp.obj) : warning LNK4099: PDB 'vc120.pdb' was not found with 'sfml-window-s-d.lib(WindowImplWin32.cpp.obj)' or at 'C:\Users\ctalbot\Documents\Visual Studio 2013\Projects\Slasher\x64\Debug\vc120.pdb'; linking object as if no debug info
-     1>sfml-system-s-d.lib(Clock.cpp.obj) : warning LNK4099: PDB 'vc120.pdb' was not found with 'sfml-system-s-d.lib(Clock.cpp.obj)' or at 'C:\Users\ctalbot\Documents\Visual Studio 2013\Projects\Slasher\x64\Debug\vc120.pdb'; linking object as if no debug info
-     1>sfml-system-s-d.lib(Err.cpp.obj) : warning LNK4099: PDB 'vc120.pdb' was not found with 'sfml-system-s-d.lib(Err.cpp.obj)' or at 'C:\Users\ctalbot\Documents\Visual Studio 2013\Projects\Slasher\x64\Debug\vc120.pdb'; linking object as if no debug info
-     1>sfml-system-s-d.lib(Lock.cpp.obj) : warning LNK4099: PDB 'vc120.pdb' was not found with 'sfml-system-s-d.lib(Lock.cpp.obj)' or at 'C:\Users\ctalbot\Documents\Visual Studio 2013\Projects\Slasher\x64\Debug\vc120.pdb'; linking object as if no debug info
-     1>sfml-system-s-d.lib(Mutex.cpp.obj) : warning LNK4099: PDB 'vc120.pdb' was not found with 'sfml-system-s-d.lib(Mutex.cpp.obj)' or at 'C:\Users\ctalbot\Documents\Visual Studio 2013\Projects\Slasher\x64\Debug\vc120.pdb'; linking object as if no debug info
-     1>sfml-system-s-d.lib(Sleep.cpp.obj) : warning LNK4099: PDB 'vc120.pdb' was not found with 'sfml-system-s-d.lib(Sleep.cpp.obj)' or at 'C:\Users\ctalbot\Documents\Visual Studio 2013\Projects\Slasher\x64\Debug\vc120.pdb'; linking object as if no debug info
-     1>sfml-system-s-d.lib(String.cpp.obj) : warning LNK4099: PDB 'vc120.pdb' was not found with 'sfml-system-s-d.lib(String.cpp.obj)' or at 'C:\Users\ctalbot\Documents\Visual Studio 2013\Projects\Slasher\x64\Debug\vc120.pdb'; linking object as if no debug info
-     1>sfml-system-s-d.lib(ThreadLocal.cpp.obj) : warning LNK4099: PDB 'vc120.pdb' was not found with 'sfml-system-s-d.lib(ThreadLocal.cpp.obj)' or at 'C:\Users\ctalbot\Documents\Visual Studio 2013\Projects\Slasher\x64\Debug\vc120.pdb'; linking object as if no debug info
-     1>sfml-system-s-d.lib(Time.cpp.obj) : warning LNK4099: PDB 'vc120.pdb' was not found with 'sfml-system-s-d.lib(Time.cpp.obj)' or at 'C:\Users\ctalbot\Documents\Visual Studio 2013\Projects\Slasher\x64\Debug\vc120.pdb'; linking object as if no debug info
-     1>sfml-system-s-d.lib(ClockImpl.cpp.obj) : warning LNK4099: PDB 'vc120.pdb' was not found with 'sfml-system-s-d.lib(ClockImpl.cpp.obj)' or at 'C:\Users\ctalbot\Documents\Visual Studio 2013\Projects\Slasher\x64\Debug\vc120.pdb'; linking object as if no debug info
-     1>sfml-system-s-d.lib(MutexImpl.cpp.obj) : warning LNK4099: PDB 'vc120.pdb' was not found with 'sfml-system-s-d.lib(MutexImpl.cpp.obj)' or at 'C:\Users\ctalbot\Documents\Visual Studio 2013\Projects\Slasher\x64\Debug\vc120.pdb'; linking object as if no debug info
-     1>sfml-system-s-d.lib(SleepImpl.cpp.obj) : warning LNK4099: PDB 'vc120.pdb' was not found with 'sfml-system-s-d.lib(SleepImpl.cpp.obj)' or at 'C:\Users\ctalbot\Documents\Visual Studio 2013\Projects\Slasher\x64\Debug\vc120.pdb'; linking object as if no debug info
-     1>sfml-system-s-d.lib(ThreadLocalImpl.cpp.obj) : warning LNK4099: PDB 'vc120.pdb' was not found with 'sfml-system-s-d.lib(ThreadLocalImpl.cpp.obj)' or at 'C:\Users\ctalbot\Documents\Visual Studio 2013\Projects\Slasher\x64\Debug\vc120.pdb'; linking object as if no debug info
-         Slasher.vcxproj -> C:\Users\ctalbot\Documents\Visual Studio 2013\Projects\Slasher\x64\Debug\Slasher.exe
-     1>Done Building Project "C:\Users\ctalbot\Documents\Visual Studio 2013\Projects\Slasher\Slasher\Slasher.vcxproj" (Build target(s)).
+     1>Done Building Project "C:\Users\ctalbot\Documents\Visual Studio 2013\Projects\Slasher\Slasher\Slasher.vcxproj" (Build target(s)) -- FAILED.
 
-Build succeeded.
+Build FAILED.
 
-Time Elapsed 00:00:05.50
+Time Elapsed 00:00:04.03

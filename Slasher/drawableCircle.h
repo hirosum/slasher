@@ -7,9 +7,33 @@ class DrawableCircle : public Drawable
 {
 public:
 	DrawableCircle(float pPosX, float pPosY,
-					float pRad);
-	DrawableCircle(sf::Vector2f pPos, float pRad);
-	//DrawableCircle(const DrawableCircle& pDrawableCircle);
+					float pPosZ, float pRad);
+	DrawableCircle(sf::Vector3f pPos, float pRad);
+
+	virtual void setWorldPosition(float pPosX, float pPosY, float pPosZ);
+	virtual void setWorldPosition(sf::Vector3f pPos);
+	virtual void setWorldPositionX(float pPos);
+	virtual void setWorldPositionY(float pPos);
+	virtual void setWorldPositionZ(float pPos);
+	virtual void move(sf::Vector2f pSpeed);
+	virtual void move(float pSpeedX, float pSpeedY);
+	sf::Vector3f getWorldPosition();
+	float		 getWorldPositionX();
+	float		 getWorldPositionY();
+	float		 getWorldPositionZ();
+
+	virtual void setLocalPosition(float pPosX, float pPosY, float pPosZ);
+	virtual void setLocalPosition(sf::Vector3f pPos);
+	virtual void setLocalPositionX(float pPos);
+	virtual void setLocalPositionY(float pPos);
+	virtual void setLocalPositionZ(float pPos);
+	virtual void moveLocal(sf::Vector2f pSpeed);
+	virtual void moveLocal(float pSpeedX, float pSpeedY);
+	virtual sf::Vector3f getLocalPosition();
+	virtual float		 getLocalPositionX();
+	virtual float		 getLocalPositionY();
+	virtual float		 getLocalPositionZ();
+
 	virtual void draw(sf::RenderWindow& pWnd);
 	void setRadius(float pRad);
 	float getRadius();
@@ -17,12 +41,6 @@ public:
 	void setColor(sf::Color pColor);
 	virtual void scale(float pScale);
 	virtual void scale(float pScaleX, float pScaleY);
-	virtual void setPosition(float pPosX, float pPosY);
-	virtual void setPosition(sf::Vector2f pPos);
-	virtual void setPositionX(float pPos);
-	virtual void setPositionY(float pPos);
-	virtual void move(sf::Vector2f pSpeed);
-	virtual void move(float pSpeedX, float pSpeedY);
 private:
 	float			  radius;
 	sf::CircleShape   shape;

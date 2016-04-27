@@ -5,26 +5,25 @@
 #include "actor.h"
 #include "calculations.h"
 
-//Constants
-const int KEY_HOLD_TIMEOUT_LENGTH = 50;
-const int WINDOW_HEIGHT = 800;
-const int WINDOW_WIDTH = 600;
+
 
 float circleRad			= 100.0f;
-float circleX			= (WINDOW_WIDTH / 2) - circleRad;
-float circleY			= (WINDOW_HEIGHT / 2) - circleRad;
-float circleMoveSpeed	= 2.0f;
-float circleResizeSpeed = 2.0f;
+sf::Vector3f circlePos((WINDOW_WIDTH / 2) - circleRad,
+						(WINDOW_HEIGHT / 2) - circleRad, 3.0f);
+sf::Vector3f rectPos(0, 0, 2);
+sf::Vector2f rectDims(50, 50);
+float actorMoveSpeed	= 2.0f;
+float actorResizeSpeed = 2.0f;
 
-DrawableCircle circle(circleX,circleY,circleRad);
-DrawableRectangle rect(0, 0, 50, 50);
+Actor act(0,0);
 
 int main()
 {
 	sf::ContextSettings settings;
 	settings.antialiasingLevel = 8;
 	sf::RenderWindow wnd(sf::VideoMode(WINDOW_WIDTH, WINDOW_HEIGHT), "SFML Works!", sf::Style::Default, settings);
-	Actor act(circleX, circleY);
+	DrawableCircle circle(circlePos, circleRad);
+	DrawableRectangle rect(rectPos, rectDims);
 	circle.setColor(sf::Color::Green);
 	rect.setColor(sf::Color::Magenta);
 	act.addToDrawableList(&circle);
@@ -52,10 +51,7 @@ void keyboardEventHandler()
 	{
 		if (holdCounters.subtractKeyCounter >= KEY_HOLD_TIMEOUT_LENGTH)
 		{
-			if ((circle.getRadius() - circleResizeSpeed)<= 10.0f)
-				circle.setRadius(10.0f);
-			else
-				circle.changeRadius(-circleResizeSpeed);
+			//TODO decrease object size
 			holdCounters.subtractKeyCounter = 0;
 		}
 		else
@@ -72,12 +68,7 @@ void keyboardEventHandler()
 	{
 		if (holdCounters.addKeyCounter >= KEY_HOLD_TIMEOUT_LENGTH)
 		{
-			if ((circle.getRadius() + circleResizeSpeed) >= maxCircleRad)
-				circle.setRadius((float)maxCircleRad);
-			else
-			{
-				circle.changeRadius(circleResizeSpeed);
-			}
+			//TODO increase object size
 			holdCounters.addKeyCounter = 0;
 		}
 		else
@@ -93,10 +84,8 @@ void keyboardEventHandler()
 	{
 		if (holdCounters.leftKeyCounter >= KEY_HOLD_TIMEOUT_LENGTH)
 		{
-			if ((circle.getPositionX() - circleMoveSpeed) <= 0)
-				circle.setPositionX(0.0f);
-			else
-				circle.move(-circleMoveSpeed,0);
+			//TODO decrease X pos
+			act.move(-actorMoveSpeed, 0);
 			holdCounters.leftKeyCounter = 0;
 		}
 		else
@@ -112,10 +101,8 @@ void keyboardEventHandler()
 	{
 		if (holdCounters.rightKeyCounter >= KEY_HOLD_TIMEOUT_LENGTH)
 		{
-			if ((circle.getPositionX() + circleMoveSpeed) >= WINDOW_WIDTH - (circle.getRadius() * 2))
-				circle.setPositionX(WINDOW_WIDTH - (circleRad * 2));
-			else
-				circle.move(circleMoveSpeed,0);
+			//TODO increase X pos
+			act.move(actorMoveSpeed, 0);
 			holdCounters.rightKeyCounter = 0;
 		}
 		else
@@ -131,10 +118,8 @@ void keyboardEventHandler()
 	{
 		if (holdCounters.upKeyCounter >= KEY_HOLD_TIMEOUT_LENGTH)
 		{
-			if ((circle.getPositionY() - circleMoveSpeed) <= 0)
-				circle.setPositionY(0.0f);
-			else
-				circle.move(0,-circleMoveSpeed);
+			//TODO decrease Y pos
+			act.move(0, -actorMoveSpeed);
 			holdCounters.upKeyCounter = 0;
 		}
 		else
@@ -150,29 +135,8 @@ void keyboardEventHandler()
 	{
 		if (holdCounters.downKeyCounter >= KEY_HOLD_TIMEOUT_LENGTH)
 		{
-			if ((circle.getPositionY() + circleMoveSpeed) >= (WINDOW_HEIGHT - circleRad * 2))
-				circle.setPositionY((WINDOW_HEIGHT - circleRad * 2));
-			else
-				circle.move(0,circleMoveSpeed);
-			holdCounters.downKeyCounter = 0;
-		}
-		else
-		{
-			holdCounters.downKeyCounter++;
-		}
-	}
-	else
-	{
-		holdCounters.downKeyCounter = 0;
-	}
-	if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down))
-	{
-		if (holdCounters.downKeyCounter >= KEY_HOLD_TIMEOUT_LENGTH)
-		{
-			if ((circle.getPositionY() + circleMoveSpeed) >= (WINDOW_HEIGHT - circleRad * 2))
-				circle.setPositionY((WINDOW_HEIGHT - circleRad * 2));
-			else
-				circle.move(0, circleMoveSpeed);
+			//TODO increase Y pos
+			act.move(0, actorMoveSpeed);
 			holdCounters.downKeyCounter = 0;
 		}
 		else

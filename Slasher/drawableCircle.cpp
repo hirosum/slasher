@@ -1,20 +1,20 @@
 #include "drawableCircle.h"
-#include "windowHandle.h"
+#include "calculations.h"
 
-DrawableCircle::DrawableCircle(float pPosX, float pPosY, float pRad) :
-	Drawable(pPosX, pPosY),
+DrawableCircle::DrawableCircle(float pPosX, float pPosY, float pPosZ, float pRad) :
+	Drawable(pPosX, pPosY,pPosZ),
 	radius(pRad),
 	shape(radius)
 {
-	shape.setPosition(position);
+	shape.setPosition(worldPosition.x, worldPosition.y);
 }
 
-DrawableCircle::DrawableCircle(sf::Vector2f pPos, float pRad) :
+DrawableCircle::DrawableCircle(sf::Vector3f pPos, float pRad) :
 	Drawable(pPos),
 	radius(pRad),
 	shape(radius)
 {
-	shape.setPosition(position);
+	shape.setPosition(worldPosition.x, worldPosition.y);
 }
 
 void DrawableCircle::setRadius(float pRad)
@@ -23,28 +23,28 @@ void DrawableCircle::setRadius(float pRad)
 	shape.setRadius(radius);
 }
 
-void DrawableCircle::setPosition(float pPosX, float pPosY)
+void DrawableCircle::setWorldPosition(float pPosX, float pPosY,float pPosZ)
 {
-	Drawable::setPosition(pPosX, pPosY);
-	shape.setPosition(pPosX, pPosY);
+	Drawable::setWorldPosition(pPosX, pPosY, pPosZ);
+	shape.setPosition(worldPosition.x, worldPosition.y);
 }
 
-void DrawableCircle::setPosition(sf::Vector2f pPos)
+void DrawableCircle::setWorldPosition(sf::Vector3f pPos)
 {
-	Drawable::setPosition(pPos);
-	shape.setPosition(pPos);
+	Drawable::setWorldPosition(pPos);
+	shape.setPosition(worldPosition.x, worldPosition.y);
 }
 
-void DrawableCircle::setPositionX(float pPos)
+void DrawableCircle::setWorldPositionX(float pPos)
 {
-	Drawable::setPositionX(pPos);
-	shape.setPosition(pPos, position.y);
+	Drawable::setWorldPositionX(pPos);
+	shape.setPosition(pPos, worldPosition.y);
 }
 
-void DrawableCircle::setPositionY(float pPos)
+void DrawableCircle::setWorldPositionY(float pPos)
 {
-	Drawable::setPositionY(pPos);
-	shape.setPosition(position.x, pPos);
+	Drawable::setWorldPositionY(pPos);
+	shape.setPosition(worldPosition.x, pPos);
 }
 
 void DrawableCircle::move(sf::Vector2f pSpeed)
@@ -56,6 +56,55 @@ void DrawableCircle::move(sf::Vector2f pSpeed)
 void DrawableCircle::move(float pSpeedX, float pSpeedY)
 {
 	Drawable::move(pSpeedX,pSpeedY);
+	shape.move(pSpeedX, pSpeedY);
+}
+
+void DrawableCircle::setLocalPosition(float pPosX, float pPosY, float pPosZ)
+{
+	Drawable::setLocalPosition(pPosX, pPosY, pPosZ);
+	shape.setPosition(localPosToWorldPos(ptrParentObject->getWorldPosition, 
+											sf::Vector2f(localPosition.x, localPosition.y)));
+}
+
+void DrawableCircle::setLocalPosition(sf::Vector3f pPos)
+{
+	if (hasParent)
+	{
+		Drawable::setLocalPosition(pPos);
+		shape.setPosition(localPosToWorldPos(ptrParentObject->getWorldPosition, 
+												sf::Vector2f(localPosition.x, localPosition.y)));
+	}
+}
+
+void DrawableCircle::setLocalPositionX(float pPos)
+{
+	if (hasParent)
+	{
+		Drawable::setLocalPositionX(pPos);
+		shape.setPosition(localPosToWorldPos(ptrParentObject->getWorldPosition, 
+												sf::Vector2f(pPos, localPosition.y)));
+	}
+}
+
+void DrawableCircle::setLocalPositionY(float pPos)
+{
+	if (hasParent)
+	{
+		Drawable::setLocalPositionY(pPos);
+		shape.setPosition(localPosToWorldPos(ptrParentObject->getWorldPosition,
+												sf::Vector2f(localPosition.x, pPos)));
+	}
+}
+
+void DrawableCircle::moveLocal(sf::Vector2f pSpeed)
+{
+	Drawable::moveLocal(pSpeed);
+	shape.move(pSpeed);
+}
+
+void DrawableCircle::moveLocal(float pSpeedX, float pSpeedY)
+{
+	Drawable::moveLocal(pSpeedX, pSpeedY);
 	shape.move(pSpeedX, pSpeedY);
 }
 

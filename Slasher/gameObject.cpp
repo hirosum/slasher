@@ -1,69 +1,149 @@
 #include "gameObject.h"
 
-GameObject::GameObject(float pPosX, float pPosY) :
-	position(pPosX,pPosY)
+GameObject::GameObject(float pPosX, float pPosY, float pPosZ) :
+	worldPosition(pPosX, pPosY, pPosZ)
 {
 
 }
 
-GameObject::GameObject(sf::Vector2f pPos) :
-	position(pPos)
+GameObject::GameObject(sf::Vector3f pPos) :
+worldPosition(pPos)
 {
 
 }
 
-void GameObject::setPosition(sf::Vector2f pPos)
+void GameObject::setWorldPosition(sf::Vector3f pPos)
 {
 	//TODO do some sort of sanity check here
-	position = pPos;
+	worldPosition = pPos;
 }
 
-void GameObject::setPosition(float pPosX, float pPosY)
+void GameObject::setWorldPosition(float pPosX, float pPosY, float pPosZ)
 {
 	//TODO do some sort of sanity check here
-	position.x = pPosX;
-	position.y = pPosY;
+	worldPosition.x = pPosX;
+	worldPosition.y = pPosY;
+	worldPosition.z = pPosZ;
 }
 
-void GameObject::setPositionX(float pPos)
+void GameObject::setWorldPositionX(float pPos)
 {
 	//TODO do some sort of sanity check here
-	position.x = pPos;
+	worldPosition.x = pPos;
 }
 
-void GameObject::setPositionY(float pPos)
+void GameObject::setWorldPositionY(float pPos)
 {
 	//TODO do some sort of sanity check here
-	position.y = pPos;
+	worldPosition.y = pPos;
+}
+
+void GameObject::setWorldPositionZ(float pPos)
+{
+	//TODO do some sort of sanity check here
+	worldPosition.z = pPos;
 }
 
 void GameObject::move(sf::Vector2f pSpeed)
 {
 	//TODO do some sort of sanity check here
-	position.x += pSpeed.x;
-	position.y += pSpeed.y;
+	worldPosition.x += pSpeed.x;
+	worldPosition.y += pSpeed.y;
 }
 
 void GameObject::move(float pSpeedX, float pSpeedY)
 {
 	//TODO do some sort of sanity check here
-	position.x += pSpeedX;
-	position.y += pSpeedY;
+	worldPosition.x += pSpeedX;
+	worldPosition.y += pSpeedY;
 }
 
-sf::Vector2f GameObject::getPosition()
+sf::Vector3f GameObject::getWorldPosition()
 {
-	return position;
+	return worldPosition;
 }
 
-float GameObject::getPositionX()
+float GameObject::getWorldPositionX()
 {
-	return position.x;
+	return worldPosition.x;
 }
 
-float GameObject::getPositionY()
+float GameObject::getWorldPositionY()
 {
-	return position.y;
+	return worldPosition.y;
+}
+
+float GameObject::getWorldPositionZ()
+{
+	return worldPosition.y;
+}
+
+
+
+void GameObject::setLocalPosition(sf::Vector3f pPos)
+{
+	//TODO do some sort of sanity check here
+	localPosition = pPos;
+}
+
+void GameObject::setLocalPosition(float pPosX, float pPosY, float pPosZ)
+{
+	//TODO do some sort of sanity check here
+	localPosition.x = pPosX;
+	localPosition.y = pPosY;
+	localPosition.z = pPosZ;
+}
+
+void GameObject::setLocalPositionX(float pPos)
+{
+	//TODO do some sort of sanity check here
+	localPosition.x = pPos;
+}
+
+void GameObject::setLocalPositionY(float pPos)
+{
+	//TODO do some sort of sanity check here
+	localPosition.y = pPos;
+}
+
+void GameObject::setLocalPositionZ(float pPos)
+{
+	//TODO do some sort of sanity check here
+	localPosition.z = pPos;
+}
+
+void GameObject::moveLocal(sf::Vector2f pSpeed)
+{
+	//TODO do some sort of sanity check here
+	localPosition.x += pSpeed.x;
+	localPosition.y += pSpeed.y;
+}
+
+void GameObject::moveLocal(float pSpeedX, float pSpeedY)
+{
+	//TODO do some sort of sanity check here
+	localPosition.x += pSpeedX;
+	localPosition.y += pSpeedY;
+}
+
+sf::Vector3f GameObject::getLocalPosition()
+{
+	return localPosition;
+}
+
+float GameObject::getLocalPositionX()
+{
+	return localPosition.x;
+}
+
+float GameObject::getLocalPositionY()
+{
+	return localPosition.y;
+}
+
+float GameObject::getLocalPositionZ()
+{
+	return localPosition.y;
 }
 
 void GameObject::setParent(GameObject* pParent)

@@ -1,12 +1,12 @@
 #include "actor.h"
 
-Actor::Actor(float pPosX, float pPosY) :
-Drawable(pPosX, pPosY)
+Actor::Actor(float pPosX, float pPosY,float pPosZ) :
+Drawable(pPosX, pPosY,pPosZ)
 {
 
 }
 
-Actor::Actor(sf::Vector2f pPos) :
+Actor::Actor(sf::Vector3f pPos) :
 Drawable(pPos)
 {
 
@@ -16,43 +16,52 @@ void Actor::draw(sf::RenderWindow& pWnd)
 {
 	for (int i = 0; i < drawableParts.size(); i++)
 	{
-		drawableParts[i]->draw(&pWnd);
+		drawableParts[i]->draw(pWnd);
 	}
 }
 
-void Actor::setPosition(float pPosX, float pPosY)
+void Actor::setWorldPosition(float pPosX, float pPosY,float pPosZ)
 {
-	Drawable::setPosition(pPosX, pPosY);
+	Drawable::setWorldPosition(pPosX, pPosY, pPosZ);
 	for (int i = 0; i < drawableParts.size(); i++)
 	{
-		drawableParts[i]->setPosition(pPosX, pPosY);
+		drawableParts[i]->setWorldPosition(pPosX, pPosY, pPosZ);
 	}
 }
 
-void Actor::setPosition(sf::Vector2f pPos)
+void Actor::setWorldPosition(sf::Vector3f pPos)
 {
-	Drawable::setPosition(pPos);
+	Drawable::setWorldPosition(pPos);
 	for (int i = 0; i < drawableParts.size(); i++)
 	{
-		drawableParts[i]->setPosition(pPos);
+		drawableParts[i]->setWorldPosition(pPos);
 	}
 }
 
-void Actor::setPositionX(float pPos)
+void Actor::setWorldPositionX(float pPos)
 {
-	Drawable::setPositionX(pPos);
-	Drawable::setPositionX(pPos); for (int i = 0; i < drawableParts.size(); i++)
+	Drawable::setWorldPositionX(pPos);
+	Drawable::setWorldPositionX(pPos); for (int i = 0; i < drawableParts.size(); i++)
 	{
-		drawableParts[i]->setPositionX(pPos);
+		drawableParts[i]->setWorldPositionX(pPos);
 	}
 }
 
-void Actor::setPositionY(float pPos)
+void Actor::setWorldPositionY(float pPos)
 {
-	Drawable::setPositionY(pPos);
+	Drawable::setWorldPositionY(pPos);
 	for (int i = 0; i < drawableParts.size(); i++)
 	{
-		drawableParts[i]->setPositionY(pPos);
+		drawableParts[i]->setWorldPositionY(pPos);
+	}
+}
+
+void Actor::setWorldPositionZ(float pPos)
+{
+	Drawable::setWorldPositionZ(pPos);
+	for (int i = 0; i < drawableParts.size(); i++)
+	{
+		drawableParts[i]->setWorldPositionZ(pPos);
 	}
 }
 

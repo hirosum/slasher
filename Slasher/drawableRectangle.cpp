@@ -1,47 +1,47 @@
 #include "drawableRectangle.h"
 
-DrawableRectangle::DrawableRectangle(float pPosX, float pPosY,
-	float pLengthX, float pLengthY) : 
-	Drawable(pPosX,pPosY),
+DrawableRectangle::DrawableRectangle(float pPosX, float pPosY, float pPosZ,
+										float pLengthX, float pLengthY) : 
+	Drawable(pPosX,pPosY,pPosZ),
 	lengthOfSides(pLengthX, pLengthY),
 	shape(lengthOfSides)
 {
 	setColor(sf::Color::Blue);
-	shape.setPosition(position);
+	shape.setPosition(worldPosition.x, worldPosition.y);
 }
 
-DrawableRectangle::DrawableRectangle(sf::Vector2f pPos, sf::Vector2f pLengthOfSides) :
+DrawableRectangle::DrawableRectangle(sf::Vector3f pPos, sf::Vector2f pLengthOfSides) :
 	Drawable(pPos),
 	lengthOfSides(pLengthOfSides),
 	shape(lengthOfSides)
 {
 	setColor(sf::Color::Blue);
-	shape.setPosition(position);
+	shape.setPosition(worldPosition.x, worldPosition.y);
 }
 
 
-void DrawableRectangle::setPosition(float pPosX, float pPosY)
+void DrawableRectangle::setWorldPosition(float pPosX, float pPosY, float pPosZ)
 {
-	Drawable::setPosition(pPosX, pPosY);
-	shape.setPosition(pPosX, pPosY);
+	Drawable::setWorldPosition(pPosX, pPosY, pPosZ);
+	shape.setPosition(worldPosition.x, worldPosition.y);
 }
 
-void DrawableRectangle::setPosition(sf::Vector2f pPos)
+void DrawableRectangle::setWorldPosition(sf::Vector3f pPos)
 {
-	Drawable::setPosition(pPos);
-	shape.setPosition(pPos);
+	Drawable::setWorldPosition(pPos);
+	shape.setPosition(worldPosition.x, worldPosition.y);
 }
 
-void DrawableRectangle::setPositionX(float pPos)
+void DrawableRectangle::setWorldPositionX(float pPos)
 {
-	Drawable::setPositionX(pPos);
-	shape.setPosition(pPos, position.y);
+	Drawable::setWorldPositionX(pPos);
+	shape.setPosition(pPos, worldPosition.y);
 }
 
-void DrawableRectangle::setPositionY(float pPos)
+void DrawableRectangle::setWorldPositionY(float pPos)
 {
-	Drawable::setPositionY(pPos);
-	shape.setPosition(position.x, pPos);
+	Drawable::setWorldPositionY(pPos);
+	shape.setPosition(worldPosition.x, pPos);
 }
 
 void DrawableRectangle::move(sf::Vector2f pSpeed)
@@ -51,6 +51,45 @@ void DrawableRectangle::move(sf::Vector2f pSpeed)
 }
 
 void DrawableRectangle::move(float pSpeedX, float pSpeedY)
+{
+	Drawable::move(pSpeedX, pSpeedY);
+	shape.move(pSpeedX, pSpeedY);
+}
+
+
+
+
+void DrawableRectangle::setLocalPosition(float pPosX, float pPosY, float pPosZ)
+{
+	Drawable::setLocalPosition(pPosX, pPosY, pPosZ);
+	shape.setPosition(worldPosition.x, worldPosition.y);
+}
+
+void DrawableRectangle::setLocalPosition(sf::Vector3f pPos)
+{
+	Drawable::setLocalPosition(pPos);
+	shape.setPosition(worldPosition.x, worldPosition.y);
+}
+
+void DrawableRectangle::setLocalPositionX(float pPos)
+{
+	Drawable::setLocalPositionX(pPos);
+	shape.setPosition(pPos, worldPosition.y);
+}
+
+void DrawableRectangle::setLocalPositionY(float pPos)
+{
+	Drawable::setLocalPositionY(pPos);
+	shape.setPosition(worldPosition.x, pPos);
+}
+
+void DrawableRectangle::moveLocal(sf::Vector2f pSpeed)
+{
+	Drawable::move(pSpeed);
+	shape.move(pSpeed);
+}
+
+void DrawableRectangle::moveLocal(float pSpeedX, float pSpeedY)
 {
 	Drawable::move(pSpeedX, pSpeedY);
 	shape.move(pSpeedX, pSpeedY);
